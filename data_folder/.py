@@ -80,11 +80,13 @@ os.system("cls")
 
 commands = ['cmds', 'tools']
 othercommands = ['close', 'home', 'updatecheck']
-toolcommands = ['ping', 'ipconfig']
+toolcommands = ['ping', 'ipconfig', 'cls']
+funcommands = ['vbucks']
 ################################
 cmddesc = ['Displays Commands', 'Displays the tool dashboard']
 cmddesco = ['Closes the program', 'Goes to homepage', 'Check for updates']
-cmddesct = ['Pings an ip [DONT DO ping (args) i will implement arg detection soon]', 'Show your IPConfiguration']
+cmddesct = ['Pings an ip [DONT DO ping (args) i will implement arg detection soon]', 'Show your IPConfiguration', 'Clears the console']
+cmddescf = ['Gives ya vBucks, for free.']
 version = "v1.01"
 
 # Descriptions are sorted by order
@@ -153,6 +155,9 @@ def mainscript():
         print("    ----------------------------")
         scinfo(toolcommands[0] + " : " + cmddesct[0])
         scinfo(toolcommands[1] + " : " + cmddesct[1])
+        scinfo(toolcommands[2] + " : " + cmddesct[2])
+        print("    ----------------------------")
+        scinfo(funcommands[0] + " : " + cmddescf[0])
         print("    ----------------------------")
         scinfo("If the commands don't work")
         scinfo("It's either bugged or being")
@@ -166,7 +171,9 @@ def mainscript():
         cinfo("Attempting to execute")
         scinfo("TOOLS - v1.00 (debug)")
         print("      ----------------------")
-        scinfo(toolcommands[0] + " : idk")
+        scinfo(toolcommands[0] + " : " + cmddesct[0])
+        scinfo(toolcommands[1] + " : " + cmddesct[1])
+        scinfo(toolcommands[2] + " : " + cmddesct[2])
         cmdline()
     elif cmdinput == othercommands[0]:
         os.system("cls")
@@ -221,6 +228,49 @@ def mainscript():
             cmdline()
         else:
             cnotice("Enter new command below")
+            cmdline()
+    elif cmdinput == toolcommands[2]:
+        os.system("cls")
+        cmdline()
+    elif cmdinput == funcommands[0]:
+        print(blue + '''
+.-.-.-..-..-..---. .-..---..--. 
+| | | | >  / | |-< | || | || \ |
+`-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+        ''')
+        cinfo("Preparing vBucks transfer")
+        scinfo("Prepared, waiting for servers")
+        os.system("ping -a epicgames.com")
+        cerror("Error finding servers, ignoring.")
+        scerror("nil")
+        cnotice("Finding username from EpicGames Launcher")
+
+        def filexists(filePathAndName):
+            return os.path.exists(filePathAndName)
+
+        if filexists("C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe"):
+            time.sleep(1)
+            os.startfile("C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe")
+            wait(3)
+            cnotice("Server1 : Up")
+            wait(0.02)
+            cerror("Server2 : Down")
+            wait(0.02)
+            cerror("Server3 : Down")
+            wait(0.02)
+            cnotice("Server4 : Up")
+            wait(0.02)
+            cnotice("Server5 : Up")
+            wait(0.02)
+            cerror("Server6 : Down")
+            wait(0.02)
+            cnotice("Server7 : Up")
+            wait(0.09)
+            cprint("Transferred vBucks")
+            wait(0.04)
+            cmdline()
+        else:
+            cerror("EpicGames not found.")
             cmdline()
     else:
         cerror("Unknown Command.")
