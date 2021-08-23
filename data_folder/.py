@@ -82,12 +82,12 @@ os.system("cls")
 commands = ['cmds', 'tools']
 othercommands = ['close', 'home', 'updatecheck']
 toolcommands = ['ping', 'ipconfig', 'cls']
-funcommands = ['vbucks', 'robux']
+funcommands = ['vbucks', 'robux', 'indian_scammer']
 ################################
 cmddesc = ['Displays Commands', 'Displays the tool dashboard']
 cmddesco = ['Closes the program', 'Goes to homepage', 'Check for updates']
 cmddesct = ['Pings an ip [DONT DO ping (args) i will implement arg detection soon]', 'Show your IPConfiguration', 'Clears the console']
-cmddescf = ['Gives ya vBucks, for free.', '/e free']
+cmddescf = ['Gives ya vBucks, for free.', '/e free', 'Imitates a fake bank that scammers usually use']
 version = "v1.01"
 ###############################
 serverstatus = ["Up","Down","Unknown"]
@@ -163,6 +163,7 @@ def mainscript():
         print("    ----------------------------")
         scinfo(funcommands[0] + " : " + cmddescf[0])
         scinfo(funcommands[1] + " : " + cmddescf[1])
+        scinfo(funcommands[2] + " : " + cmddescf[2])
         print("    ----------------------------")
         scinfo("If the commands don't work")
         scinfo("It's either bugged or being")
@@ -308,6 +309,28 @@ def mainscript():
             cprint("Transferred Robux")
             wait(0.04)
             cmdline()
+    if cmdinput == funcommands[2]:
+        print(blue + "# ONLINE CHASE REFUND SERVER #".center(120))
+        print(blue + "Enter your amount")
+        funds = input(">> ")
+        cinfo("Connecting to server")
+        cnotice("Server1 : " + x)
+        wait(0.02)
+        cerror("Server2 : " + x)
+        wait(0.02)
+        cerror("Server3 : " + x)
+        wait(0.02)
+        cnotice("Server4 : " + x)
+        wait(0.02)
+        cnotice("Server5 : " + x)
+        wait(0.02)
+        cerror("Server6 : " + x)
+        wait(0.02)
+        cnotice("Server7 : " + x)
+        wait(0.09)
+        print(blue + "Transferred " + funds)
+        print("omg mam big mistake now let me steal ur money!1!!1")
+        cmdline()
     else:
         cerror("Unknown Command.")
         cmdline()
