@@ -5,6 +5,7 @@ import time
 import colorama
 import webbrowser as wb
 import ctypes
+import random
 
 # Variables
 
@@ -81,13 +82,16 @@ os.system("cls")
 commands = ['cmds', 'tools']
 othercommands = ['close', 'home', 'updatecheck']
 toolcommands = ['ping', 'ipconfig', 'cls']
-funcommands = ['vbucks']
+funcommands = ['vbucks', 'robux']
 ################################
 cmddesc = ['Displays Commands', 'Displays the tool dashboard']
 cmddesco = ['Closes the program', 'Goes to homepage', 'Check for updates']
 cmddesct = ['Pings an ip [DONT DO ping (args) i will implement arg detection soon]', 'Show your IPConfiguration', 'Clears the console']
-cmddescf = ['Gives ya vBucks, for free.']
+cmddescf = ['Gives ya vBucks, for free.', '/e free']
 version = "v1.01"
+###############################
+serverstatus = ["Up","Down","Unknown"]
+x = random.choice(serverstatus)
 
 # Descriptions are sorted by order
 
@@ -158,6 +162,7 @@ def mainscript():
         scinfo(toolcommands[2] + " : " + cmddesct[2])
         print("    ----------------------------")
         scinfo(funcommands[0] + " : " + cmddescf[0])
+        scinfo(funcommands[1] + " : " + cmddescf[1])
         print("    ----------------------------")
         scinfo("If the commands don't work")
         scinfo("It's either bugged or being")
@@ -252,25 +257,56 @@ def mainscript():
             time.sleep(1)
             os.startfile("C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe")
             wait(3)
-            cnotice("Server1 : Up")
+            cnotice("Server1 : " + x)
             wait(0.02)
-            cerror("Server2 : Down")
+            cerror("Server2 : " + x)
             wait(0.02)
-            cerror("Server3 : Down")
+            cerror("Server3 : " + x)
             wait(0.02)
-            cnotice("Server4 : Up")
+            cnotice("Server4 : " + x)
             wait(0.02)
-            cnotice("Server5 : Up")
+            cnotice("Server5 : " + x)
             wait(0.02)
-            cerror("Server6 : Down")
+            cerror("Server6 : " + x)
             wait(0.02)
-            cnotice("Server7 : Up")
+            cnotice("Server7 : " + x)
             wait(0.09)
             cprint("Transferred vBucks")
             wait(0.04)
             cmdline()
         else:
             cerror("EpicGames not found.")
+            cmdline()
+    elif cmdinput == funcommands[1]:
+            print(red + '''
+.-.-.-..-..-..---. .-..---..--. 
+| | | | >  / | |-< | || | || \ |
+`-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+            ''')
+            cinfo("Preparing Robux transfer")
+            scinfo("Prepared, waiting for servers")
+            os.system("ping -a roblox.com")
+            cerror("Error finding servers, ignoring.")
+            scerror("nil")
+            cnotice("Finding username from https://roblox.com")
+            wb.open_new("https://roblox.com")
+            wait(3)
+            cnotice("Server1 : " + x)
+            wait(0.02)
+            cerror("Server2 : " + x)
+            wait(0.02)
+            cerror("Server3 : " + x)
+            wait(0.02)
+            cnotice("Server4 : " + x)
+            wait(0.02)
+            cnotice("Server5 : " + x)
+            wait(0.02)
+            cerror("Server6 : " + x)
+            wait(0.02)
+            cnotice("Server7 : " + x)
+            wait(0.09)
+            cprint("Transferred Robux")
+            wait(0.04)
             cmdline()
     else:
         cerror("Unknown Command.")
