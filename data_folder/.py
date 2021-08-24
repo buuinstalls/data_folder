@@ -66,8 +66,6 @@ def get_user():
 
 # Stuff
 
-
-
 # Script Function
 
 
@@ -81,12 +79,12 @@ os.system("cls")
 
 commands = ['cmds', 'tools']
 othercommands = ['close', 'home', 'updatecheck']
-toolcommands = ['ping', 'ipconfig', 'cls']
+toolcommands = ['ping', 'ipconfig', 'cls', 'saveinfo']
 funcommands = ['vbucks', 'robux', 'indian_scammer']
 ################################
 cmddesc = ['Displays Commands', 'Displays the tool dashboard']
 cmddesco = ['Closes the program', 'Goes to homepage', 'Check for updates']
-cmddesct = ['Pings an ip [DONT DO ping (args) i will implement arg detection soon]', 'Show your IPConfiguration', 'Clears the console']
+cmddesct = ['Pings an ip [DONT DO ping (args) i will implement arg detection soon]', 'Show your IPConfiguration', 'Clears the console', 'Stuff that you saved']
 cmddescf = ['Gives ya vBucks, for free.', '/e free', 'Imitates a fake bank that scammers usually use']
 version = "v1.01"
 ###############################
@@ -98,6 +96,10 @@ x3 = random.choice(serverstatus)
 x4 = random.choice(serverstatus)
 x5 = random.choice(serverstatus)
 x6 = random.choice(serverstatus)
+###############################
+# stuff that the user saves
+# could be links, and stuff
+savedinfo = ['bruh', 'lol', 'poop']
 
 # Descriptions are sorted by order
 
@@ -139,6 +141,93 @@ scinfo("myriad console | buu#1662")
 
 # Main
 
+def saveinfoscript():
+    print(green + '''
+    .-.-.-..-..-..---. .-..---..--. 
+    | | | | >  / | |-< | || | || \ |
+    `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+            ''')
+    cnotice("Displaying your saved data")
+    scnotice("Would you like to display or input?")
+    scnotice("display/input | show/save")
+    showordisplay = input(green + ">> " + normal + "")
+    if showordisplay == "display" or showordisplay == "show":
+        print("    ----------------------------")
+        print(savedinfo)
+        cnotice("Enter new command below or type saveinfo again to save/display")
+        cmdline()
+    elif showordisplay == "input" or showordisplay == "save":
+        cnotice("Type in a link, or directory below")
+        inputorsave = input(green + ">> " + normal + "")
+        savedinfo.insert(inputorsave, savedinfo)
+        cnotice("Whatever you typed should've been inserted")
+        scnotice("Enter new command below or type saveinfo again to save/display")
+        cmdline()
+    else:
+        cerror("Error:")
+        scerror("Did not type correct arguments")#@#
+
+def pingerscript():
+    print(green + '''
+    .-.-.-..-..-..---. .-..---..--. 
+    | | | | >  / | |-< | || | || \ |
+    `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+                    ''')
+    cnotice("Establishing pinger")
+    scnotice("Established!- Please input the website or IP address")
+    webip = input(green + ">> " + normal + "")
+    os.system("ping -a " + webip + "")
+    cnotice("Would you like to re-run the IP Pinger? (y/n)")
+    repeatpinger = input(green + ">> " + normal + "")
+    if repeatpinger == "y":
+        os.system("cls")
+        pingerscript()
+    elif repeatpinger == "n":
+        os.system("cls")
+        startupscript()
+    else:
+        cerror("Unknown Command.")
+        cmdline()
+
+def startupscript():
+    os.system("cls")
+    wait(.3)
+    print(red + '''
+        .-.-.-..-..-..---. .-..---..--. 
+        | | | | >  / | |-< | || | || \ |
+        `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+        b
+    ''')
+    wait(.08)
+    os.system("cls")
+    print(green + '''
+        .-.-.-..-..-..---. .-..---..--. 
+        | | | | >  / | |-< | || | || \ |
+        `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+        u
+    ''')
+    wait(.08)
+    os.system("cls")
+    print(blue + '''
+        .-.-.-..-..-..---. .-..---..--. 
+        | | | | >  / | |-< | || | || \ |
+        `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+        u
+    ''')
+    wait(.08)
+    os.system("cls")
+    print(yellow + '''
+        .-.-.-..-..-..---. .-..---..--. 
+        | | | | >  / | |-< | || | || \ |
+        `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+        ''' + version + '''
+        Made by buu#1662
+    '''.center(80))
+    cinfo("Make sure to say 'cmds' for the commands")
+    scinfo("a fully operating useless cmd console")
+    scinfo("myriad console | buu#1662")
+    cmdline()
+
 def mainscript():
     cmdinput = input(green + ">> " + normal + "")
     os.system("cls")
@@ -166,6 +255,7 @@ def mainscript():
         scinfo(toolcommands[0] + " : " + cmddesct[0])
         scinfo(toolcommands[1] + " : " + cmddesct[1])
         scinfo(toolcommands[2] + " : " + cmddesct[2])
+        scinfo(toolcommands[3] + " : " + cmddesct[3])
         print("    ----------------------------")
         scinfo(funcommands[0] + " : " + cmddescf[0])
         scinfo(funcommands[1] + " : " + cmddescf[1])
@@ -186,6 +276,7 @@ def mainscript():
         scinfo(toolcommands[0] + " : " + cmddesct[0])
         scinfo(toolcommands[1] + " : " + cmddesct[1])
         scinfo(toolcommands[2] + " : " + cmddesct[2])
+        scinfo(toolcommands[3] + " : " + cmddesct[3])
         cmdline()
     elif cmdinput == othercommands[0]:
         os.system("cls")
@@ -193,12 +284,37 @@ def mainscript():
         time.sleep(.5)
     elif cmdinput == othercommands[1]:
         os.system("cls")
+        wait(.3)
+        print(red + '''
+            .-.-.-..-..-..---. .-..---..--. 
+            | | | | >  / | |-< | || | || \ |
+            `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+            b
+        ''')
+        wait(.08)
+        os.system("cls")
+        print(green + '''
+            .-.-.-..-..-..---. .-..---..--. 
+            | | | | >  / | |-< | || | || \ |
+            `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+            u
+        ''')
+        wait(.08)
+        os.system("cls")
+        print(blue + '''
+            .-.-.-..-..-..---. .-..---..--. 
+            | | | | >  / | |-< | || | || \ |
+            `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+            u
+        ''')
+        wait(.08)
+        os.system("cls")
         print(yellow + '''
-        .-.-.-..-..-..---. .-..---..--. 
-        | | | | >  / | |-< | || | || \ |
-        `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
-        ''' + version + '''
-        Made by buu#1662
+            .-.-.-..-..-..---. .-..---..--. 
+            | | | | >  / | |-< | || | || \ |
+            `-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
+            ''' + version + '''
+            Made by buu#1662
         '''.center(80))
         cinfo("Make sure to say 'cmds' for the commands")
         scinfo("a fully operating useless cmd console")
@@ -215,17 +331,9 @@ def mainscript():
         scinfo("soz")
         cmdline()
     elif cmdinput == toolcommands[0]:
-        print(green + '''
-.-.-.-..-..-..---. .-..---..--. 
-| | | | >  / | |-< | || | || \ |
-`-'-'-' `-'  `-'`-'`-'`-^-'`-'-'
-                ''')
-        cnotice("Establishing pinger")
-        scnotice("Established!- Please input the website or IP address")
-        webip = input(green + ">> " + normal + "")
-        os.system("ping -a " + webip + "")
-        cnotice("Enter new command below - type ping to ping again")
-        cmdline()
+        # to make sure it loops i made it a function
+        # lol
+        pingerscript()
     elif cmdinput == toolcommands[1]:
         print(green + '''
 .-.-.-..-..-..---. .-..---..--. 
@@ -244,6 +352,12 @@ def mainscript():
     elif cmdinput == toolcommands[2]:
         os.system("cls")
         cmdline()
+    elif cmdinput == toolcommands[3]:
+            cerror("yooooo this doesnt work cause")
+            scerror("i cant figure out how to insert")
+            scerror("your input to the save data table")
+            saveinfoscript()
+            cmdline()
     elif cmdinput == funcommands[0]:
         print(blue + '''
 .-.-.-..-..-..---. .-..---..--. 
@@ -296,7 +410,6 @@ def mainscript():
             cerror("Error finding servers, ignoring.")
             scerror("nil")
             cnotice("Finding username from https://roblox.com")
-            wb.open_new("https://roblox.com")
             wait(3)
             cnotice("Server1 : " + x)
             wait(0.02)
